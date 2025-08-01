@@ -3,7 +3,8 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
+    public InventoryManager inventoryManager;
+    public Item[] itemsToPickup;
     void Awake()
     {
         Instance = this;
@@ -28,12 +29,14 @@ public class GameManager : MonoBehaviour
            } 
     }
     
+    // ReSharper disable Unity.PerformanceAnalysis
     public void HandleObjectClick(ClickableObject obj)
     {
         switch (obj.objectID)
         {
             case "Tile1":
                 Debug.Log("You clicked Tile 1!");
+				PickupItem(0);
                 break;
             case "Tile2":
                 Debug.Log("You clicked Tile 2!");
@@ -45,5 +48,10 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Clicked: " + obj.name);
                 break;
         }
+    }
+
+    public void PickupItem(int id)
+    {
+        inventoryManager.AddItem(itemsToPickup[id]);
     }
 }
