@@ -63,6 +63,7 @@ public class NoteCheck : MonoBehaviour
         if (notecheck == 4)
         {
             Debug.Log("NOTE CHECKED");
+            PlayMyAudio();
         }
         else
         {
@@ -71,5 +72,18 @@ public class NoteCheck : MonoBehaviour
         }
 
         
+        
+    }
+    void PlayMyAudio()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        if (audio != null)
+        {
+            audio.Play();
+        }
+        else
+        {
+            Debug.LogWarning("No AudioSource found on this GameObject!");
+        }
     }
 }

@@ -34,18 +34,23 @@ public class GameManager : MonoBehaviour
     {
         switch (obj.objectID)
         {
-            case "Tile1":
-                Debug.Log("You clicked Tile 1!");
+            case "Bird":
+                Debug.Log("You clicked Bird!");
 				PickupItem(0);
                 break;
-            case "Tile2":
-                Debug.Log("You clicked Tile 2!");
+            case "Chimes":
+                Debug.Log("You clicked Chimes!");
                 PickupItem(1);
                 break;
-            case "Enemy":
-                Debug.Log("That’s an enemy!");
+            case "Dog":
+                Debug.Log("You clicked Dog!!");
                 PickupItem(2);
                 break;
+            case "Frog":
+                Debug.Log("You clicked Frog!");
+                PickupItem(3);
+                break;
+            
             default:
                 Debug.Log("Clicked: " + obj.name);
                 break;

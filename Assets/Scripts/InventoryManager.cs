@@ -10,9 +10,24 @@ public class InventoryManager : MonoBehaviour
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+
+            if (itemInSlot != null && itemInSlot.item != null && itemInSlot.item.id == item.id)
+            {
+                Debug.Log("❌ Item already exists in the inventory. Skipping add.");
+                return;
+            }
+        }
+
+        // Second: add it to the first available empty slot
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+
             if (itemInSlot == null)
             {
                 SpawnNewItem(item, slot);
+                Debug.Log("✅ Item added to inventory.");
                 return;
             }
         }
