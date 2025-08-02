@@ -40,9 +40,11 @@ public class GameManager : MonoBehaviour
                 break;
             case "Tile2":
                 Debug.Log("You clicked Tile 2!");
+                PickupItem(1);
                 break;
             case "Enemy":
                 Debug.Log("That’s an enemy!");
+                PickupItem(2);
                 break;
             default:
                 Debug.Log("Clicked: " + obj.name);

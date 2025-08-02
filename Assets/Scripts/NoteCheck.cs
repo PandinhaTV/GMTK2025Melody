@@ -11,22 +11,65 @@ public class NoteCheck : MonoBehaviour
     public Item targetItem2;
     public Item targetItem3;
     public Item targetItem4;
+    private int notecheck = 0;
 
 
     
 
     public void CheckNotes()
     {
+        notecheck = 0;
         foreach (Transform child in place1.transform)
         {
             InventoryItem invItem = child.GetComponent<InventoryItem>();
             if (invItem != null && invItem.item!= null && invItem.item.id == targetItem1.id)
             {
                 Debug.Log("✅ Found matching item by ID!");
-                return;
+                notecheck++;
+                
+            }
+        }
+        foreach (Transform child in place2.transform)
+        {
+            InventoryItem invItem = child.GetComponent<InventoryItem>();
+            if (invItem != null && invItem.item!= null && invItem.item.id == targetItem2.id)
+            {
+                Debug.Log("✅ Found matching item by ID!");
+                notecheck++;
+                
+            }
+        }
+        foreach (Transform child in place3.transform)
+        {
+            InventoryItem invItem = child.GetComponent<InventoryItem>();
+            if (invItem != null && invItem.item!= null && invItem.item.id == targetItem3.id)
+            {
+                Debug.Log("✅ Found matching item by ID!");
+                notecheck++;
+                
+            }
+        }
+        foreach (Transform child in place4.transform)
+        {
+            InventoryItem invItem = child.GetComponent<InventoryItem>();
+            if (invItem != null && invItem.item!= null && invItem.item.id == targetItem4.id)
+            {
+                Debug.Log("✅ Found matching item by ID!");
+                notecheck++;
+                
             }
         }
 
-        Debug.Log("❌ targetItem is NOT a child of place1.");
+        if (notecheck == 4)
+        {
+            Debug.Log("NOTE CHECKED");
+        }
+        else
+        {
+            Debug.Log("NOTE NOT CHECKED");
+            
+        }
+
+        
     }
 }
