@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class NoteCheck : MonoBehaviour
 {
+    
     public GameObject place1;
     public GameObject place2;
     public GameObject place3;
@@ -13,10 +15,17 @@ public class NoteCheck : MonoBehaviour
     public Item targetItem4;
     private int notecheck = 0;
     public GameObject UI;
+    public AudioSource audioSource;
 
-
-    
-
+    private void Update()
+    {
+        if (!audioSource.isPlaying && hasPlayed)
+        {
+            hasPlayed = false; // Reset or disable so it only triggers once
+            OnSoundFinished();
+        }
+    }
+    private bool hasPlayed = false;
     public void CheckNotes()
     {
         notecheck = 0;
@@ -84,10 +93,16 @@ public class NoteCheck : MonoBehaviour
         if (audio != null)
         {
             audio.Play();
+            hasPlayed = true;
         }
         else
         {
             Debug.LogWarning("No AudioSource found on this GameObject!");
         }
+    }
+    void OnSoundFinished()
+    {
+        Debug.Log("✅ Sound finished playing!");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

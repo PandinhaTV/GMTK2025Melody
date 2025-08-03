@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    public void Next()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
     void Update()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -78,7 +82,30 @@ public class GameManager : MonoBehaviour
                 Debug.Log("You clicked Can");
                 PickupItem(3);
                 break;
-
+            case "Coff":
+                Debug.Log("You clicked Coff");
+                PickupItem(0);
+                break;
+            case "Decorations":
+                Debug.Log("You clicked Decorations");
+                PickupItem(1);
+                break;
+            case "Glass":
+                Debug.Log("You clicked Glass");
+                PickupItem(2);
+                break;
+            case "Phone":
+                Debug.Log("You clicked Phone");
+                PickupItem(3);
+                break;
+            case "Baby":
+                Debug.Log("You clicked Baby");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                break;
+            case "Baby2":
+                Debug.Log("You clicked Baby");
+                
+                break;
             default:
                 Debug.Log("Clicked: " + obj.name);
                 break;
