@@ -33,6 +33,8 @@ public class ClickableObject : MonoBehaviour
         Debug.Log("Clicked on: " + objectID);
         if (!string.IsNullOrEmpty(animationName))
         {
+            GetComponent<Animator>().enabled = true;
+            Debug.Log("Playing animation: " + animationName);
             animator.Play(animationName, 0, 0f);
         }
         // Example: tell a manager what was clicked
@@ -44,7 +46,7 @@ public class ClickableObject : MonoBehaviour
         if (audio != null)
         {
             audio.Play();
-            GetComponent<Animator>().enabled = true;
+            
             
         }
         else
