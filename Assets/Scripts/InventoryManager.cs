@@ -1,7 +1,8 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
+    
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
     public void AddItem(Item item)

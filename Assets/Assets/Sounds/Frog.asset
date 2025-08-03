@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9679deba02ab3624f8f25e0595d1d241, type: 3}
   m_Name: Frog
   m_EditorClassIdentifier: 
-  image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  image: {fileID: 21300000, guid: 466a08a356800ca42bfd9cede899d180, type: 3}
   name: Frog
   id: 3

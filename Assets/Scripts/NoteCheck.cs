@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class NoteCheck : MonoBehaviour
 {
     public GameObject place1;
@@ -12,6 +12,7 @@ public class NoteCheck : MonoBehaviour
     public Item targetItem3;
     public Item targetItem4;
     private int notecheck = 0;
+    public GameObject UI;
 
 
     
@@ -57,6 +58,7 @@ public class NoteCheck : MonoBehaviour
                 Debug.Log("✅ Found matching item by ID!");
                 notecheck++;
                 
+                
             }
         }
 
@@ -64,6 +66,8 @@ public class NoteCheck : MonoBehaviour
         {
             Debug.Log("NOTE CHECKED");
             PlayMyAudio();
+            //UI.SetActive(false);
+            
         }
         else
         {
